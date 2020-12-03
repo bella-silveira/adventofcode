@@ -1,6 +1,6 @@
 const input = require("./input")
 
-const countTrees = () => {
+const countTrees = (addX, addY) => {
   const forestMap = input.split("\n")
   const lineLength = forestMap[0].length
   let currentIndex = 0
@@ -12,11 +12,13 @@ const countTrees = () => {
     if (forestMap[currentLine][posX] === "#") {
         treeCount++
     }
-    currentIndex += 3
-    currentLine++
+    currentIndex += addX
+    currentLine += addY
   }
 
   return treeCount
 }
 
-console.log(countTrees())
+console.log(countTrees(3, 1))
+
+module.exports = countTrees
